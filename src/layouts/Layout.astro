@@ -1,25 +1,53 @@
 ---
 import "@fontsource-variable/plus-jakarta-sans";
+import ClientRouter from "astro/components/ClientRouter.astro";
+import Footer from "../components/astro/Footer.astro";
+import Header from "../components/svelte/Header.svelte";
 import "../styles/globals.css";
+
+type Props = {
+  title: string;
+  description: string;
+  url: string;
+};
+
+const { title, description, url } = Astro.props;
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <title>{title}</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      IMPHNEN - Ingin Menjadi Programmer Handal, Namun Enggan Ngoding
-    </title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta
-      name="description"
-      content="A community where lazy programmers assemble to share memes, tips & tricks, and knowledge"
+      property="og:image"
+      content="https://raw.githubusercontent.com/IMPHNEN/.github/main/profile/banner.png"
     />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta
+      property="twitter:image"
+      content="https://raw.githubusercontent.com/IMPHNEN/.github/main/profile/banner.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <ClientRouter />
   </head>
   <body>
     <div class="flex min-h-screen flex-col">
+      <Header client:only="svelte" />
       <slot />
+      <Footer />
     </div>
   </body>
 </html>

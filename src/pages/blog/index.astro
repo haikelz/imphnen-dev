@@ -1,0 +1,128 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// In a real application, you would fetch this data from a CMS or markdown files
+const blogPosts = [
+  {
+    id: 1,
+    title: "How to Look Busy While Avoiding Work",
+    excerpt:
+      "Master the art of appearing productive without writing a single line of code. Includes keyboard shortcuts to quickly switch screens when your boss walks by.",
+    date: "April 5, 2025",
+    author: "Lazy Developer",
+    category: "Productivity Hacks",
+    image: "/api/placeholder/800/500",
+  },
+  {
+    id: 2,
+    title: "10 AI Tools That Can Code So You Don't Have To",
+    excerpt:
+      "Why spend hours coding when AI can do it for you? Explore the latest AI tools that can handle your programming tasks while you take all the credit.",
+    date: "March 28, 2025",
+    author: "Code Avoider",
+    category: "AI Tools",
+    image: "/api/placeholder/800/500",
+  },
+  {
+    id: 3,
+    title: "The Art of Copy-Pasting from Stack Overflow",
+    excerpt:
+      "A comprehensive guide to effectively copying code from Stack Overflow without understanding how it works. Includes tips on avoiding detection.",
+    date: "March 15, 2025",
+    author: "Ctrl+C Enjoyer",
+    category: "Best Practices",
+    image: "/api/placeholder/800/500",
+  },
+  {
+    id: 4,
+    title: "Why Documentation Is Overrated",
+    excerpt:
+      "Documenting your code takes time away from not coding. Learn why future you (or someone else) should figure it out themselves.",
+    date: "March 2, 2025",
+    author: "Doc Dodger",
+    category: "Anti-Patterns",
+    image: "/api/placeholder/800/500",
+  },
+  {
+    id: 5,
+    title: "Excuses Every Developer Should Know",
+    excerpt:
+      "From 'It works on my machine' to 'That's not a bug, it's a feature', master the art of deflecting responsibility for your code.",
+    date: "February 17, 2025",
+    author: "Blame Shifter",
+    category: "Communication Skills",
+    image: "/api/placeholder/800/500",
+  },
+  {
+    id: 6,
+    title: "Conference-Driven Development: Looking Busy at Tech Events",
+    excerpt:
+      "How to attend tech conferences, collect swag, and network without actually learning anything technical or implementing new ideas.",
+    date: "February 5, 2025",
+    author: "Swag Collector",
+    category: "Career Growth",
+    image: "/api/placeholder/800/500",
+  },
+];
+
+const title = "IMPHNEN Blog - Lazy Programming Tips & Humor";
+const description =
+  "Articles, guides, and memes for programmers who want to be experts but are reluctant to code.";
+---
+
+<Layout title={title} description={description} url="">
+  <main class="flex-1">
+    <!-- Hero section -->
+    <section class="bg-muted py-12 md:py-16 lg:py-20">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            The IMPHNEN Blog
+          </h1>
+          <p class="text-muted-foreground mb-8">
+            Practical advice, humorous takes, and solidarity for programmers who
+            aspire to greatness but prefer to avoid the actual work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog listing -->
+    <section class="py-12 md:py-16">
+      <div class="container">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {
+            blogPosts.map((post) => (
+              <article class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden group hover:shadow-md transition-all">
+                <div class="aspect-video w-full overflow-hidden bg-muted">
+                  <img
+                    src={post.image}
+                    alt={`Illustration for ${post.title}`}
+                    class="object-cover w-full h-full transition-transform group-hover:scale-105"
+                  />
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                    <span>{post.category}</span>
+                    <span>•</span>
+                    <time datetime={post.date}>{post.date}</time>
+                  </div>
+                  <h2 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    <a href={`/blog/${post.id}`} class="hover:underline">
+                      {post.title}
+                    </a>
+                  </h2>
+                  <p class="text-muted-foreground mb-4">{post.excerpt}</p>
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-muted overflow-hidden mr-2" />
+                    <span class="text-sm">{post.author}</span>
+                  </div>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

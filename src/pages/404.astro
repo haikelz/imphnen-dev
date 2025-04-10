@@ -5,7 +5,11 @@ import Header from "../components/svelte/Header.svelte";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
+<Layout
+  title="404 Not Found"
+  description="IMPHNEN (Ingin Menjadi Programmer Handal, Namun Enggan Ngoding) adalah sebuah komunitas untuk para programmer yang pengen jago tapi malas ngoding dan hobi scroll Fesnuk."
+  url=""
+>
   <Header client:load />
   <main class="flex-1">
     <section class="py-24 md:py-32 flex items-center justify-center">
@@ -41,7 +45,8 @@ import Layout from "../layouts/Layout.astro";
                     <p>&nbsp;&nbsp;</p> else {}
                     <p>
                       &nbsp;&nbsp;&nbsp;&nbsp;return 404; <span
-                        class="text-primary">// You are here</span>
+                        class="text-primary">// You are here</span
+                      >
                     </p>
                     <p>&nbsp;&nbsp;</p>
                   </p>

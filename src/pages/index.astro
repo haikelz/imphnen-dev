@@ -1,20 +1,22 @@
 ---
-import Footer from "../components/astro//Footer.astro";
 import AboutSection from "../components/astro/AboutSection.astro";
 import CommunitySection from "../components/astro/CommunitySection.astro";
 import HeroSection from "../components/astro/HeroSection.astro";
 import JoinSection from "../components/astro/JoinSection.astro";
-import Header from "../components/svelte/Header.svelte";
+import StatsSection from "../components/astro/StatsSection.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-  <Header client:only="svelte" />
+<Layout
+  title="IMPHNEN"
+  description="IMPHNEN (Ingin Menjadi Programmer Handal, Namun Enggan Ngoding) adalah sebuah komunitas untuk para programmer yang pengen jago tapi malas ngoding dan hobi scroll Fesnuk."
+  url="https://imphnen.ekel.dev"
+>
   <main class="flex-1">
     <HeroSection />
+    <StatsSection />
     <AboutSection />
     <CommunitySection />
     <JoinSection />
   </main>
-  <Footer />
 </Layout>

@@ -5,7 +5,11 @@ import Header from "../components/svelte/Header.svelte";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
+<Layout
+  title="500 Server Error!"
+  description="IMPHNEN (Ingin Menjadi Programmer Handal, Namun Enggan Ngoding) adalah sebuah komunitas untuk para programmer yang pengen jago tapi malas ngoding dan hobi scroll Fesnuk."
+  url=""
+>
   <Header client:load />
   <main class="flex-1">
     <section class="py-24 md:py-32 flex items-center justify-center">
@@ -14,8 +18,7 @@ import Layout from "../layouts/Layout.astro";
           <h1 class="text-7xl md:text-9xl font-bold text-destructive">500</h1>
           <h2 class="text-3xl font-bold tracking-tight">Server Error</h2>
           <p class="text-muted-foreground">
-            Oops! Something went wrong. It seems our server is taking a break,
-            just like a lazy programmer.
+            Oops! Sepertinya ada yang salah dengan server kami.
           </p>
           <div class="flex justify-center mt-8">
             <a
@@ -23,7 +26,7 @@ import Layout from "../layouts/Layout.astro";
               class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
             >
               <RefreshCcw class="mr-2 h-4 w-4" />
-              Refresh Page
+              Refresh Halaman Ini
             </a>
           </div>
           <div class="relative mt-12">
@@ -31,16 +34,17 @@ import Layout from "../layouts/Layout.astro";
               class="border rounded-lg bg-card shadow-sm p-6 text-card-foreground"
             >
               <div class="font-mono text-sm text-muted-foreground">
-                <p>// Server trying to process your request</p>
+                <p>// Server lagi ngeproses requestmu</p>
                 <p class="mt-4">
                   try {}
                   <p>&nbsp;&nbsp;processRequest();</p>
                   <p>&nbsp;&nbsp;return response;</p>
                   <p></p> catch (error) {}
-                  <p>&nbsp;&nbsp;console.log("Not my problem today.");</p>
+                  <p>&nbsp;&nbsp;console.log("Bukan masalah gue coi.");</p>
                   <p>
                     &nbsp;&nbsp;return 500; <span class="text-destructive"
-                      >// Sorry about that</span>
+                      >// Oke gue minta maaf soal itu</span
+                    >
                   </p>
                   <p></p>
                 </p>

@@ -1,0 +1,41 @@
+---
+import { Code, Users } from "lucide-svelte";
+---
+
+<section class="py-12 bg-primary/5">
+  <div class="container">
+    <div class="grid gap-8 sm:grid-cols-2">
+      <!-- Facebook Members Stat -->
+      <div
+        class="rounded-lg border bg-card text-card-foreground shadow-sm p-6 flex items-center space-x-4"
+      >
+        <div class="bg-primary/10 p-3 rounded-full">
+          <Users class="h-8 w-8 text-primary" />
+        </div>
+        <div>
+          <p class="text-sm text-muted-foreground">Fesnuk Member</p>
+          <h3 class="text-3xl font-bold">100k+</h3>
+          <p class="text-sm text-muted-foreground mt-1">
+            Programmer malas dan masih akan bertambah....
+          </p>
+        </div>
+      </div>
+
+      <!-- Projects Completed Stat -->
+      <div
+        class="rounded-lg border bg-card text-card-foreground shadow-sm p-6 flex items-center space-x-4"
+      >
+        <div class="bg-primary/10 p-3 rounded-full">
+          <Code class="h-8 w-8 text-primary" />
+        </div>
+        <div>
+          <p class="text-sm text-muted-foreground">Project Selesai</p>
+          <h3 class="text-3xl font-bold">0/10</h3>
+          <p class="text-sm text-muted-foreground mt-1">
+            Nanti juga selesai cui projectnya
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
