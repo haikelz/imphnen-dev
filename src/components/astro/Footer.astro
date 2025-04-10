@@ -1,0 +1,49 @@
+---
+import { Facebook, Github, MessageSquare } from "lucide-svelte";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t py-6 md:py-8">
+  <div
+    class="container flex flex-col gap-4 md:flex-row md:items-center md:justify-between"
+  >
+    <div class="text-center md:text-left">
+      <p class="text-sm text-muted-foreground">
+        &copy; {currentYear} IMPHNEN Community. All rights reserved.
+      </p>
+      <p class="text-xs text-muted-foreground mt-1">
+        Ingin Menjadi Programmer Handal, Namun Enggan Ngoding
+      </p>
+    </div>
+    <div class="flex justify-center md:justify-end gap-4">
+      <a
+        href="https://www.facebook.com/groups/programmerhandal"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-muted-foreground hover:text-foreground"
+      >
+        <Facebook class="h-5 w-5" />
+        <span class="sr-only">Facebook</span>
+      </a>
+      <a
+        href="https://github.com/IMPHNEN"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-muted-foreground hover:text-foreground"
+      >
+        <Github class="h-5 w-5" />
+        <span class="sr-only">GitHub</span>
+      </a>
+      <a
+        href="https://discord.gg/imphnen"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-muted-foreground hover:text-foreground"
+      >
+        <MessageSquare class="h-5 w-5" />
+        <span class="sr-only">Discord</span>
+      </a>
+    </div>
+  </div>
+</footer>

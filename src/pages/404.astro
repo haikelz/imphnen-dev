@@ -1,0 +1,58 @@
+---
+import { ArrowLeft } from "lucide-svelte";
+import Footer from "../components/astro/Footer.astro";
+import Header from "../components/svelte/Header.svelte";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <Header client:load />
+  <main class="flex-1">
+    <section class="py-24 md:py-32 flex items-center justify-center">
+      <div class="container">
+        <div class="max-w-2xl mx-auto text-center space-y-8">
+          <h1 class="text-7xl md:text-9xl font-bold text-primary">404</h1>
+          <h2 class="text-3xl font-bold tracking-tight">Page Not Found</h2>
+          <p class="text-muted-foreground">
+            The page you're looking for doesn't exist. Maybe even the laziest
+            programmer couldn't be bothered to create it.
+          </p>
+          <div class="flex justify-center mt-8">
+            <a
+              href="/"
+              class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+            >
+              <ArrowLeft class="mr-2 h-4 w-4" />
+              Back to Homepage
+            </a>
+          </div>
+          <div class="relative mt-12">
+            <div
+              class="border rounded-lg bg-card shadow-sm p-6 text-card-foreground"
+            >
+              <div class="font-mono text-sm text-muted-foreground">
+                <p>// When programmers want to be expert coders</p>
+                <p>// But don't want to actually code</p>
+                <p class="mt-4">
+                  function findPage() {}
+                  <p>
+                    &nbsp;&nbsp;if (pageExists) {}
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;return page;</p>
+                    <p>&nbsp;&nbsp;</p> else {}
+                    <p>
+                      &nbsp;&nbsp;&nbsp;&nbsp;return 404; <span
+                        class="text-primary">// You are here</span>
+                    </p>
+                    <p>&nbsp;&nbsp;</p>
+                  </p>
+                  <p></p>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

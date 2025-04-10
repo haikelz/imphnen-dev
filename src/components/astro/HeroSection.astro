@@ -1,0 +1,33 @@
+---
+import { ChevronRight } from "lucide-svelte";
+---
+
+<section class="relative">
+  <div
+    class="w-full h-[300px] md:h-[400px] lg:h-[500px] relative overflow-hidden"
+  >
+    <img
+      src="https://raw.githubusercontent.com/IMPHNEN/.github/main/profile/banner.png"
+      alt="IMPHNEN Community Banner"
+      class="object-cover w-full h-full absolute inset-0"
+    />
+    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+      <div class="container text-center text-white space-y-4">
+        <h1 class="text-3xl md:text-5xl font-bold tracking-tight">IMPHNEN</h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto">
+          Ingin Menjadi Programmer Handal, Namun Enggan Ngoding
+        </p>
+        <p class="text-sm md:text-base max-w-xl mx-auto text-gray-300">
+          A community where lazy programmers assemble to share memes, tips &
+          tricks, and knowledge
+        </p>
+        <a
+          href="https://www.facebook.com/groups/programmerhandal"
+          class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 mt-4"
+        >
+          Join Our Community <ChevronRight class="ml-2 h-4 w-4" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

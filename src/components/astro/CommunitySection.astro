@@ -1,0 +1,84 @@
+---
+import { Facebook, Github, MessageSquare } from "lucide-svelte";
+---
+
+<section id="community" class="py-16">
+  <div class="container">
+    <h2 class="text-3xl font-bold tracking-tight text-center mb-12">
+      Our Community Platforms
+    </h2>
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Facebook Group -->
+      <div
+        class="rounded-lg border bg-card text-card-foreground shadow-xs overflow-hidden group hover:shadow-md transition-all"
+      >
+        <div class="bg-primary/10 p-6 flex justify-center">
+          <Facebook class="h-12 w-12 text-primary" />
+        </div>
+        <div class="p-6 space-y-2">
+          <h3 class="text-xl font-semibold">Facebook Group</h3>
+          <p class="text-muted-foreground">
+            Join our active Facebook community where we share memes, discuss
+            programming topics, and help each other out.
+          </p>
+          <a
+            href="https://www.facebook.com/groups/programmerhandal"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-full group-hover:bg-primary group-hover:text-primary-foreground px-4 py-2"
+          >
+            Join Group
+          </a>
+        </div>
+      </div>
+
+      <!-- GitHub Organization -->
+      <div
+        class="rounded-lg border bg-card text-card-foreground shadow-xs overflow-hidden group hover:shadow-md transition-all"
+      >
+        <div class="bg-primary/10 p-6 flex justify-center">
+          <Github class="h-12 w-12 text-primary" />
+        </div>
+        <div class="p-6 space-y-2">
+          <h3 class="text-xl font-semibold">GitHub Organization</h3>
+          <p class="text-muted-foreground">
+            Explore our GitHub organization for collaborative projects, code
+            snippets, and resources for lazy programmers.
+          </p>
+          <a
+            href="https://github.com/IMPHNEN"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-full group-hover:bg-primary group-hover:text-primary-foreground px-4 py-2"
+          >
+            View Organization
+          </a>
+        </div>
+      </div>
+
+      <!-- Discord Server -->
+      <div
+        class="rounded-lg border bg-card text-card-foreground shadow-xs overflow-hidden group hover:shadow-md transition-all"
+      >
+        <div class="bg-primary/10 p-6 flex justify-center">
+          <MessageSquare class="h-12 w-12 text-primary" />
+        </div>
+        <div class="p-6 space-y-2">
+          <h3 class="text-xl font-semibold">Discord Server</h3>
+          <p class="text-muted-foreground">
+            Chat with fellow lazy programmers in real-time, share your coding
+            struggles, and find instant help.
+          </p>
+          <a
+            href="https://discord.gg/imphnen"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-full group-hover:bg-primary group-hover:text-primary-foreground px-4 py-2"
+          >
+            Join Server
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
