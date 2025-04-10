@@ -1,0 +1,56 @@
+---
+title: "Why Documentation Is Overrated"
+excerpt: "Documenting your code takes time away from not coding. Learn why future you (or someone else) should figure it out themselves."
+pubDate: "2025-03-02"
+author: "Doc Dodger"
+authorBio: "A programmer who believes code should be self-explanatory and that the struggle of figuring things out builds character."
+category: "Anti-Patterns"
+image: "/api/placeholder/800/500"
+featured: false
+---
+
+We've all heard the mantra: "Document your code!" But as true IMPHNEN community members, we know that documentation is just another form of work—and work is what we're trying to avoid. Here's why documentation is overrated and how to justify its absence.
+
+## The Code Speaks for Itself
+
+Good code should be self-explanatory. If someone can't understand your implementation from reading the code, are they really qualified to work with it? Consider the following:
+
+```javascript
+// Supposedly "undocumented" function
+const processData = (d) =>
+  d.f ? d.v.map((i) => i * 2).filter((i) => i > 10) : [];
+```
+
+Why waste time explaining that this filters and doubles values when the code clearly shows it? Anyone who needs comments to understand this probably needs to brush up on their JavaScript skills.
+
+## Documentation Gets Outdated
+
+The only thing worse than no documentation is wrong documentation. As soon as you change the code, the docs become obsolete. By not writing documentation in the first place, you're actually preventing future confusion. You're welcome, team!
+
+## The Mystery Maintains Your Job Security
+
+Let's be honest—if anyone could understand your code at a glance, what value would you add to the company? A healthy level of complexity and mystery in your codebase ensures that you'll always be needed to explain how things work (or why they don't).
+
+## It's a Learning Opportunity for Others
+
+When colleagues have to spend hours figuring out your code, they're developing valuable problem-solving skills and gaining a deeper understanding of the system. You're not being lazy; you're creating a professional development opportunity.
+
+## Documentation Doesn't Fix Bad Code
+
+If your code needs extensive documentation to be understood, it's probably not well-designed in the first place. Instead of writing documentation, you should theoretically be refactoring your code to make it clearer and more maintainable. Of course, as IMPHNEN members, we know you won't actually do the refactoring either, but it's a good excuse.
+
+## The True IMPHNEN Documentation Strategy
+
+If you absolutely must provide some form of documentation, here's the minimal effort approach:
+
+1. Use cryptic variable names, then add a single comment saying what they mean
+2. Write TODOs that will never be done to show you had good intentions
+3. Create a README with installation instructions only, leaving usage as "an exercise for the reader"
+4. When asked about documentation, say you're "waiting for the API to stabilize before documenting"
+5. Add a link to a relevant Stack Overflow question instead of explaining your solution
+
+## Conclusion
+
+Documentation, like most forms of work, is best when done by someone else—preferably in the future. By avoiding it now, you're creating opportunities for future team members to showcase their detective skills and really immerse themselves in the codebase.
+
+Remember our community motto: Why do today what someone else can struggle with tomorrow?

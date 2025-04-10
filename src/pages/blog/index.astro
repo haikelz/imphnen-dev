@@ -1,69 +1,13 @@
 ---
+import { getCollection } from "astro:content";
+import { format } from "date-fns";
 import Layout from "../../layouts/Layout.astro";
 
-// In a real application, you would fetch this data from a CMS or markdown files
-const blogPosts = [
-  {
-    id: 1,
-    title: "How to Look Busy While Avoiding Work",
-    excerpt:
-      "Master the art of appearing productive without writing a single line of code. Includes keyboard shortcuts to quickly switch screens when your boss walks by.",
-    date: "April 5, 2025",
-    author: "Lazy Developer",
-    category: "Productivity Hacks",
-    image: "/api/placeholder/800/500",
-  },
-  {
-    id: 2,
-    title: "10 AI Tools That Can Code So You Don't Have To",
-    excerpt:
-      "Why spend hours coding when AI can do it for you? Explore the latest AI tools that can handle your programming tasks while you take all the credit.",
-    date: "March 28, 2025",
-    author: "Code Avoider",
-    category: "AI Tools",
-    image: "/api/placeholder/800/500",
-  },
-  {
-    id: 3,
-    title: "The Art of Copy-Pasting from Stack Overflow",
-    excerpt:
-      "A comprehensive guide to effectively copying code from Stack Overflow without understanding how it works. Includes tips on avoiding detection.",
-    date: "March 15, 2025",
-    author: "Ctrl+C Enjoyer",
-    category: "Best Practices",
-    image: "/api/placeholder/800/500",
-  },
-  {
-    id: 4,
-    title: "Why Documentation Is Overrated",
-    excerpt:
-      "Documenting your code takes time away from not coding. Learn why future you (or someone else) should figure it out themselves.",
-    date: "March 2, 2025",
-    author: "Doc Dodger",
-    category: "Anti-Patterns",
-    image: "/api/placeholder/800/500",
-  },
-  {
-    id: 5,
-    title: "Excuses Every Developer Should Know",
-    excerpt:
-      "From 'It works on my machine' to 'That's not a bug, it's a feature', master the art of deflecting responsibility for your code.",
-    date: "February 17, 2025",
-    author: "Blame Shifter",
-    category: "Communication Skills",
-    image: "/api/placeholder/800/500",
-  },
-  {
-    id: 6,
-    title: "Conference-Driven Development: Looking Busy at Tech Events",
-    excerpt:
-      "How to attend tech conferences, collect swag, and network without actually learning anything technical or implementing new ideas.",
-    date: "February 5, 2025",
-    author: "Swag Collector",
-    category: "Career Growth",
-    image: "/api/placeholder/800/500",
-  },
-];
+const allBlogPosts = await getCollection("blog");
+// Sort by date, newest first
+const blogPosts = allBlogPosts.sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
 
 const title = "IMPHNEN Blog - Lazy Programming Tips & Humor";
 const description =
@@ -96,26 +40,28 @@ const description =
               <article class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden group hover:shadow-md transition-all">
                 <div class="aspect-video w-full overflow-hidden bg-muted">
                   <img
-                    src={post.image}
-                    alt={`Illustration for ${post.title}`}
+                    src={post.data.image}
+                    alt={`Illustration for ${post.data.title}`}
                     class="object-cover w-full h-full transition-transform group-hover:scale-105"
                   />
                 </div>
                 <div class="p-6">
                   <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                    <span>{post.category}</span>
+                    <span>{post.data.category}</span>
                     <span>•</span>
-                    <time datetime={post.date}>{post.date}</time>
+                    <time datetime={post.data.pubDate.toISOString()}>
+                      {format(post.data.pubDate, "MMMM d, yyyy")}
+                    </time>
                   </div>
                   <h2 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    <a href={`/blog/${post.id}`} class="hover:underline">
-                      {post.title}
+                    <a href={`/blog/${post.slug}`} class="hover:underline">
+                      {post.data.title}
                     </a>
                   </h2>
-                  <p class="text-muted-foreground mb-4">{post.excerpt}</p>
+                  <p class="text-muted-foreground mb-4">{post.data.excerpt}</p>
                   <div class="flex items-center">
                     <div class="w-8 h-8 rounded-full bg-muted overflow-hidden mr-2" />
-                    <span class="text-sm">{post.author}</span>
+                    <span class="text-sm">{post.data.author}</span>
                   </div>
                 </div>
               </article>
