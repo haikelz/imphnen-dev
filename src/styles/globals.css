@@ -1,6 +1,7 @@
 @import "tailwindcss";
-
 @custom-variant dark (&:is(.dark *));
+
+@plugin '@tailwindcss/typography';
 
 @theme {
   --color-border: hsl(var(--border));
@@ -41,6 +42,10 @@
   @media (width >= 1400px) {
     max-width: 1400px;
   }
+}
+
+* {
+  scroll-behavior: smooth;
 }
 
 html,

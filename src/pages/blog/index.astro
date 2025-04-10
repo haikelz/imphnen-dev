@@ -4,28 +4,26 @@ import { format } from "date-fns";
 import Layout from "../../layouts/Layout.astro";
 
 const allBlogPosts = await getCollection("blog");
-// Sort by date, newest first
 const blogPosts = allBlogPosts.sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
-const title = "IMPHNEN Blog - Lazy Programming Tips & Humor";
-const description =
-  "Articles, guides, and memes for programmers who want to be experts but are reluctant to code.";
+const title = "Blog";
+const description = "Tulisan dari member kami yang rajin mengoding.";
+const url = "https://imphnen.ekel.dev/blog";
 ---
 
-<Layout title={title} description={description} url="">
+<Layout title={title} description={description} url={url}>
   <main class="flex-1">
     <!-- Hero section -->
     <section class="bg-muted py-12 md:py-16 lg:py-20">
       <div class="container">
         <div class="max-w-3xl mx-auto text-center">
           <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            The IMPHNEN Blog
+            Blog
           </h1>
           <p class="text-muted-foreground mb-8">
-            Practical advice, humorous takes, and solidarity for programmers who
-            aspire to greatness but prefer to avoid the actual work.
+            Tulisan dari member kami yang rajin mengoding.
           </p>
         </div>
       </div>
@@ -60,7 +58,11 @@ const description =
                   </h2>
                   <p class="text-muted-foreground mb-4">{post.data.excerpt}</p>
                   <div class="flex items-center">
-                    <div class="w-8 h-8 rounded-full bg-muted overflow-hidden mr-2" />
+                    <img
+                      src="/images/author.jpeg"
+                      class="w-8 h-8 rounded-full mr-2"
+                      alt="author"
+                    />
                     <span class="text-sm">{post.data.author}</span>
                   </div>
                 </div>

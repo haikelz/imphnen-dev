@@ -5,12 +5,17 @@ import HeroSection from "../components/astro/HeroSection.astro";
 import JoinSection from "../components/astro/JoinSection.astro";
 import StatsSection from "../components/astro/StatsSection.astro";
 import Layout from "../layouts/Layout.astro";
+import {
+  WEBSITE_DESCRIPTION,
+  WEBSITE_TITLE,
+  WEBSITE_URL,
+} from "../utils/constants";
 ---
 
 <Layout
-  title="IMPHNEN"
-  description="IMPHNEN (Ingin Menjadi Programmer Handal, Namun Enggan Ngoding) adalah sebuah komunitas untuk para programmer yang pengen jago tapi malas ngoding dan hobi scroll Fesnuk."
-  url="https://imphnen.ekel.dev"
+  title={WEBSITE_TITLE}
+  description={WEBSITE_DESCRIPTION}
+  url={WEBSITE_URL}
 >
   <main class="flex-1">
     <HeroSection />

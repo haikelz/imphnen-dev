@@ -3,12 +3,13 @@ import { ArrowLeft } from "lucide-svelte";
 import Footer from "../components/astro/Footer.astro";
 import Header from "../components/svelte/Header.svelte";
 import Layout from "../layouts/Layout.astro";
+import { WEBSITE_DESCRIPTION, WEBSITE_URL } from "../utils/constants";
 ---
 
 <Layout
   title="404 Not Found"
-  description="IMPHNEN (Ingin Menjadi Programmer Handal, Namun Enggan Ngoding) adalah sebuah komunitas untuk para programmer yang pengen jago tapi malas ngoding dan hobi scroll Fesnuk."
-  url=""
+  description={WEBSITE_DESCRIPTION}
+  url={WEBSITE_URL}
 >
   <Header client:load />
   <main class="flex-1">

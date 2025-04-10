@@ -6,7 +6,7 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   output: "static",
-  site: "https://imphnen.pages.dev",
+  site: "https://imphnen.ekel.dev",
   vite: {
     plugins: [tailwindcss()],
     resolve: {

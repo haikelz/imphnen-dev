@@ -1,48 +1,109 @@
-# Astro Starter Kit: Basics
+# IMPHNEN Website
 
-```sh
-pnpm create astro@latest -- --template basics
+A community website for IMPHNEN (Ingin Menjadi Programmer Handal, Namun Enggan Ngoding) built with Astro and Svelte.
+
+![IMPHNEN Banner](https://raw.githubusercontent.com/IMPHNEN/.github/main/profile/banner.png)
+
+## 🚀 Features
+
+- ⚡ Astro for fast static site generation
+- 💨 Svelte components for interactive UI
+- 🌙 Dark mode with system preference detection and user toggle
+- 📱 Fully responsive design
+- 📝 Blog system with MDX
+- 🎨 Styled with Tailwind CSS and Typography plugin
+- 📊 Community statistics showcase
+- 🔥 Optimized performance
+
+## 🛠️ Setup and Installation
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm, yarn, or pnpm
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/imphnen-website.git
+   cd imphnen-website
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:3000`
+
+## 🚢 Deployment
+
+### Build for Production
+
+```bash
+npm run build
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+The built site will be in the `dist/` directory, ready to be deployed to any static hosting service.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Recommended Hosting Platforms
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- Netlify
+- Vercel
+- GitHub Pages
+- Cloudflare Pages
 
-## 🚀 Project Structure
+## 📝 Blog System
 
-Inside of your Astro project, you'll see the following folders and files:
+The blog system uses Astro's Content Collections with MDX files. To add a new blog post:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+1. Create a new `.mdx` file in `src/content/blog/`
+2. Add frontmatter with the required fields:
+   ```yaml
+   ---
+   title: "Your Post Title"
+   excerpt: "Brief description of the post"
+   pubDate: "YYYY-MM-DD"
+   author: "Author Name"
+   authorBio: "Short author biography"
+   category: "Post Category"
+   image: "/path/to/image.jpg"
+   featured: false
+   ---
+   ```
+3. Write your content using Markdown and MDX features
+4. The post will automatically appear in the blog listing
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🌙 Dark Mode Implementation
 
-## 🧞 Commands
+The dark mode toggle:
 
-All commands are run from the root of the project, from a terminal:
+- Uses localStorage to persist user preference
+- Detects system color scheme preference as default
+- Applies theme before page load to prevent flashing
+- Updates in real-time when toggled
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## 🎨 Styling System
 
-## 👀 Want to learn more?
+The project uses Tailwind CSS with:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Custom color scheme variables for light/dark modes
+- Typography plugin for blog content styling
+- Responsive design for all screen sizes
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.

@@ -4,6 +4,11 @@ import ClientRouter from "astro/components/ClientRouter.astro";
 import Footer from "../components/astro/Footer.astro";
 import Header from "../components/svelte/Header.svelte";
 import "../styles/globals.css";
+import {
+  WEBSITE_DESCRIPTION,
+  WEBSITE_TITLE,
+  WEBSITE_URL,
+} from "../utils/constants";
 
 type Props = {
   title: string;
@@ -11,8 +16,11 @@ type Props = {
   url: string;
 };
 
-const { title, description, url } = Astro.props;
-const currentPath = Astro.url.pathname;
+const {
+  title = WEBSITE_TITLE,
+  description = WEBSITE_DESCRIPTION,
+  url = WEBSITE_URL,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -26,18 +34,12 @@ const currentPath = Astro.url.pathname;
     <meta property="og:url" content={url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta
-      property="og:image"
-      content="https://raw.githubusercontent.com/IMPHNEN/.github/main/profile/banner.png"
-    />
+    <meta property="og:image" content="/images/banner.png" />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta
-      property="twitter:image"
-      content="https://raw.githubusercontent.com/IMPHNEN/.github/main/profile/banner.png"
-    />
+    <meta property="twitter:image" content="/images/banner.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap.xml" />

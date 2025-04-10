@@ -12,15 +12,16 @@ interface Props {
   category: string;
   image: string;
   slug: string;
+  description: string;
+  url: string;
 }
 
-const { title, pubDate, author, authorBio, category, image, slug } =
+const { title, pubDate, author, authorBio, category, image, url, description } =
   Astro.props;
 ---
 
-<Layout title={`${title} | IMPHNEN Blog`} url="" description="">
+<Layout title={title} url={url} description={description}>
   <main class="flex-1">
-    <!-- Hero Section -->
     <section class="relative">
       <div class="w-full h-[300px] md:h-[400px] relative overflow-hidden">
         <img
@@ -49,7 +50,6 @@ const { title, pubDate, author, authorBio, category, image, slug } =
       </div>
     </section>
 
-    <!-- Content Section -->
     <section class="py-12">
       <div class="container">
         <div class="max-w-3xl mx-auto">
@@ -68,7 +68,11 @@ const { title, pubDate, author, authorBio, category, image, slug } =
           <div class="mt-12 pt-8 border-t">
             <h3 class="text-xl font-semibold mb-4">About the author</h3>
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-full bg-muted"></div>
+              <img
+                src="/images/author.jpeg"
+                class="w-12 h-12 rounded-full"
+                alt="author"
+              />
               <div>
                 <h4 class="font-medium">{author}</h4>
                 <p class="text-muted-foreground">{authorBio}</p>
