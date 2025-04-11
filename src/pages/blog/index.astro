@@ -4,12 +4,10 @@ import { format } from "date-fns";
 import Layout from "../../layouts/Layout.astro";
 
 const allBlogPosts = await getCollection("blog");
-// Sort by date, newest first
 const blogPosts = allBlogPosts.sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
-// Get featured posts
 const featuredPosts = blogPosts.filter((post) => post.data.featured);
 
 const title = "Blog";
@@ -164,7 +162,7 @@ const url = "https://imphnen.ekel.dev/blog";
     <!-- All posts -->
     <section class="py-12 md:py-16 bg-muted/30">
       <div class="container px-4">
-        <h2 class="text-2xl md:text-3xl font-bold mb-8">Latest Articles</h2>
+        <h2 class="text-2xl md:text-3xl font-bold mb-8">Latest Posts</h2>
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {
             blogPosts.map((post) => (
@@ -217,116 +215,6 @@ const url = "https://imphnen.ekel.dev/blog";
               </article>
             ))
           }
-        </div>
-
-        <!-- Newsletter signup -->
-        <div class="mt-20 relative">
-          <div
-            class="absolute -inset-0.5 bg-linear-to-r from-primary/30 to-secondary/30 rounded-xl blur-xl opacity-70 -z-10"
-          >
-          </div>
-          <div
-            class="relative p-8 md:p-12 rounded-xl bg-card/80 backdrop-blur-xs border border-border/50"
-          >
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 class="text-2xl md:text-3xl font-bold mb-4">
-                  Subscribe to Our Newsletter
-                </h3>
-                <p class="text-muted-foreground mb-4">
-                  Get the latest tips, tricks, and memes for programmers who
-                  want to avoid actual programming, delivered straight to your
-                  inbox.
-                </p>
-                <ul class="space-y-2 mb-6">
-                  <li class="flex items-center gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="text-primary"
-                      ><polyline points="20 6 9 17 4 12"></polyline></svg
-                    >
-                    Weekly programming memes
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="text-primary"
-                      ><polyline points="20 6 9 17 4 12"></polyline></svg
-                    >
-                    Coding shortcuts and hacks
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="text-primary"
-                      ><polyline points="20 6 9 17 4 12"></polyline></svg
-                    >
-                    Exclusive content for lazy programmers
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <form class="space-y-4">
-                  <div class="relative">
-                    <div
-                      class="absolute -inset-0.5 bg-linear-to-r from-primary/50 to-secondary/50 rounded-lg blur-sm opacity-30"
-                    >
-                    </div>
-                    <input
-                      type="text"
-                      placeholder="Your Name"
-                      class="relative w-full px-4 py-3 bg-background rounded-lg border border-border/50 focus:outline-hidden focus:ring-2 focus:ring-primary/50"
-                    />
-                  </div>
-                  <div class="relative">
-                    <div
-                      class="absolute -inset-0.5 bg-linear-to-r from-primary/50 to-secondary/50 rounded-lg blur-sm opacity-30"
-                    >
-                    </div>
-                    <input
-                      type="email"
-                      placeholder="Your Email"
-                      class="relative w-full px-4 py-3 bg-background rounded-lg border border-border/50 focus:outline-hidden focus:ring-2 focus:ring-primary/50"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    class="w-full bg-linear-to-r from-primary to-secondary text-white font-medium py-3 px-4 rounded-lg hover:opacity-90 transition-opacity"
-                  >
-                    Subscribe Now
-                  </button>
-                  <p class="text-xs text-muted-foreground text-center">
-                    We promise not to spam you. We'll only send you content when
-                    we're too lazy to code.
-                  </p>
-                </form>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
