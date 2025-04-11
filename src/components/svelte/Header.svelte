@@ -30,19 +30,19 @@
         Blog
       </a>
       <a
-        href="#about"
+        href="/#about"
         class="text-muted-foreground hover:text-foreground transition-colors"
       >
         About
       </a>
       <a
-        href="#community"
+        href="/#community"
         class="text-muted-foreground hover:text-foreground transition-colors"
       >
         Community
       </a>
       <a
-        href="#join"
+        href="/#join"
         class="text-muted-foreground hover:text-foreground transition-colors"
       >
         Join Us
