@@ -4,9 +4,13 @@ import { format } from "date-fns";
 import Layout from "../../layouts/Layout.astro";
 
 const allBlogPosts = await getCollection("blog");
+// Sort by date, newest first
 const blogPosts = allBlogPosts.sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
+
+// Get featured posts
+const featuredPosts = blogPosts.filter((post) => post.data.featured);
 
 const title = "Blog";
 const description = "Tulisan dari member kami yang rajin mengoding.";
@@ -16,59 +20,313 @@ const url = "https://imphnen.ekel.dev/blog";
 <Layout title={title} description={description} url={url}>
   <main class="flex-1">
     <!-- Hero section -->
-    <section class="bg-muted py-12 md:py-16 lg:py-20">
-      <div class="container">
+    <section class="py-16 md:py-24 relative overflow-hidden">
+      <!-- Background decorative elements -->
+      <div
+        class="absolute inset-0 bg-grid-pattern bg-[length:40px_40px] opacity-[0.03] dark:opacity-[0.05] pointer-events-none -z-10"
+      >
+      </div>
+      <div
+        class="absolute -top-64 -left-64 w-96 h-96 bg-linear-to-br from-primary/20 via-transparent to-transparent rounded-full filter blur-3xl -z-10"
+      >
+      </div>
+      <div
+        class="absolute -bottom-64 -right-64 w-96 h-96 bg-linear-to-br from-accent/20 via-transparent to-transparent rounded-full filter blur-3xl -z-10"
+      >
+      </div>
+
+      <div class="container px-4">
         <div class="max-w-3xl mx-auto text-center">
-          <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Blog
+          <div
+            class="inline-block px-3 py-1 text-xs font-semibold bg-muted rounded-full text-primary mb-6"
+          >
+            IMPHNEN BLOG
+          </div>
+          <h1 class="text-4xl md:text-6xl font-bold mb-6">
+            Tulisan <span
+              class="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent"
+              >Programmer</span
+            > Malas
           </h1>
-          <p class="text-muted-foreground mb-8">
-            Tulisan dari member kami yang rajin mengoding.
+          <p
+            class="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+          >
+            Tulisan dari para member kami yang kadang malas dan rajin.
           </p>
+
+          <!-- Search bar -->
+          <div class="max-w-md mx-auto mt-8 relative">
+            <div
+              class="absolute -inset-0.5 bg-linear-to-r from-primary/50 to-secondary/50 rounded-full blur-sm opacity-30"
+            >
+            </div>
+            <div
+              class="relative flex rounded-full border border-border bg-background/50 backdrop-blur-xs"
+            >
+              <input
+                type="text"
+                placeholder="Search articles..."
+                class="flex-1 bg-transparent px-4 py-2 outline-hidden rounded-l-full text-foreground"
+              />
+              <button
+                class="bg-linear-to-r from-primary to-secondary text-white px-6 py-2 rounded-full"
+              >
+                Search
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Blog listing -->
-    <section class="py-12 md:py-16">
-      <div class="container">
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <!-- Featured posts -->
+    {
+      featuredPosts.length > 0 && (
+        <section class="py-12">
+          <div class="container px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8">Featured Posts</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+              {featuredPosts.map((post) => (
+                <article class="group relative h-full">
+                  <div class="absolute -inset-1 bg-linear-to-r from-primary to-secondary rounded-2xl blur-sm opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
+                  <div class="relative h-full overflow-hidden rounded-xl border border-border bg-card shadow-md">
+                    <div class="md:flex h-full">
+                      <div class="md:w-2/5 aspect-video md:aspect-auto relative overflow-hidden bg-muted">
+                        <img
+                          src={post.data.image}
+                          alt={`Illustration for ${post.data.title}`}
+                          class="absolute inset-0 object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
+                      <div class="p-6 md:w-3/5 flex flex-col">
+                        <div class="flex items-center gap-2 text-xs text-muted-foreground mb-3">
+                          <span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                            {post.data.category}
+                          </span>
+                          <span>•</span>
+                          <time datetime={post.data.pubDate.toISOString()}>
+                            {format(post.data.pubDate, "MMM d, yyyy")}
+                          </time>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                          <a
+                            href={`/blog/${post.slug}`}
+                            class="hover:underline"
+                          >
+                            {post.data.title}
+                          </a>
+                        </h3>
+                        <p class="text-muted-foreground mb-4 line-clamp-3">
+                          {post.data.excerpt}
+                        </p>
+                        <div class="mt-auto flex items-center justify-between">
+                          <div class="flex items-center">
+                            <img
+                              src="/images/author.jpeg"
+                              alt="author"
+                              class="w-8 h-8 rounded-full"
+                            />
+                            <span class="text-sm ml-2">{post.data.author}</span>
+                          </div>
+                          <a
+                            href={`/blog/${post.slug}`}
+                            class="text-primary font-medium hover:underline flex items-center gap-1"
+                          >
+                            Read More
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="group-hover:translate-x-1 transition-transform"
+                            >
+                              <line x1="5" y1="12" x2="19" y2="12" />
+                              <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <!-- All posts -->
+    <section class="py-12 md:py-16 bg-muted/30">
+      <div class="container px-4">
+        <h2 class="text-2xl md:text-3xl font-bold mb-8">Latest Articles</h2>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {
             blogPosts.map((post) => (
-              <article class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden group hover:shadow-md transition-all">
-                <div class="aspect-video w-full overflow-hidden bg-muted">
-                  <img
-                    src={post.data.image}
-                    alt={`Illustration for ${post.data.title}`}
-                    class="object-cover w-full h-full transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <div class="p-6">
-                  <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                    <span>{post.data.category}</span>
-                    <span>•</span>
-                    <time datetime={post.data.pubDate.toISOString()}>
-                      {format(post.data.pubDate, "MMMM d, yyyy")}
-                    </time>
-                  </div>
-                  <h2 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    <a href={`/blog/${post.slug}`} class="hover:underline">
-                      {post.data.title}
-                    </a>
-                  </h2>
-                  <p class="text-muted-foreground mb-4">{post.data.excerpt}</p>
-                  <div class="flex items-center">
+              <article class="relative group h-full">
+                <div class="absolute -inset-0.5 bg-linear-to-r from-primary/20 to-secondary/20 rounded-xl blur-sm opacity-0 group-hover:opacity-70 transition-opacity duration-300" />
+                <div class="relative h-full rounded-lg border border-border/70 bg-card shadow-xs overflow-hidden">
+                  <div class="aspect-video w-full overflow-hidden bg-muted">
                     <img
-                      src="/images/author.jpeg"
-                      class="w-8 h-8 rounded-full mr-2"
-                      alt="author"
+                      src={post.data.image}
+                      alt={`Illustration for ${post.data.title}`}
+                      class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                     />
-                    <span class="text-sm">{post.data.author}</span>
+                  </div>
+                  <div class="p-6">
+                    <div class="flex items-center gap-2 text-xs text-muted-foreground mb-3">
+                      <span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                        {post.data.category}
+                      </span>
+                      <span>•</span>
+                      <time datetime={post.data.pubDate.toISOString()}>
+                        {format(post.data.pubDate, "MMM d, yyyy")}
+                      </time>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                      <a href={`/blog/${post.slug}`} class="hover:underline">
+                        {post.data.title}
+                      </a>
+                    </h3>
+                    <p class="text-muted-foreground mb-4 text-sm line-clamp-3">
+                      {post.data.excerpt}
+                    </p>
+                    <div class="mt-auto pt-4 border-t border-border/50 flex items-center justify-between">
+                      <div class="flex items-center">
+                        <img
+                          src="/images/author.jpeg"
+                          alt="author"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <span class="text-xs ml-2">{post.data.author}</span>
+                      </div>
+                      <a
+                        href={`/blog/${post.slug}`}
+                        class="text-primary text-sm font-medium hover:underline"
+                      >
+                        Read More
+                      </a>
+                    </div>
                   </div>
                 </div>
               </article>
             ))
           }
+        </div>
+
+        <!-- Newsletter signup -->
+        <div class="mt-20 relative">
+          <div
+            class="absolute -inset-0.5 bg-linear-to-r from-primary/30 to-secondary/30 rounded-xl blur-xl opacity-70 -z-10"
+          >
+          </div>
+          <div
+            class="relative p-8 md:p-12 rounded-xl bg-card/80 backdrop-blur-xs border border-border/50"
+          >
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-4">
+                  Subscribe to Our Newsletter
+                </h3>
+                <p class="text-muted-foreground mb-4">
+                  Get the latest tips, tricks, and memes for programmers who
+                  want to avoid actual programming, delivered straight to your
+                  inbox.
+                </p>
+                <ul class="space-y-2 mb-6">
+                  <li class="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-primary"
+                      ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    Weekly programming memes
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-primary"
+                      ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    Coding shortcuts and hacks
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-primary"
+                      ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    Exclusive content for lazy programmers
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <form class="space-y-4">
+                  <div class="relative">
+                    <div
+                      class="absolute -inset-0.5 bg-linear-to-r from-primary/50 to-secondary/50 rounded-lg blur-sm opacity-30"
+                    >
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Your Name"
+                      class="relative w-full px-4 py-3 bg-background rounded-lg border border-border/50 focus:outline-hidden focus:ring-2 focus:ring-primary/50"
+                    />
+                  </div>
+                  <div class="relative">
+                    <div
+                      class="absolute -inset-0.5 bg-linear-to-r from-primary/50 to-secondary/50 rounded-lg blur-sm opacity-30"
+                    >
+                    </div>
+                    <input
+                      type="email"
+                      placeholder="Your Email"
+                      class="relative w-full px-4 py-3 bg-background rounded-lg border border-border/50 focus:outline-hidden focus:ring-2 focus:ring-primary/50"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    class="w-full bg-linear-to-r from-primary to-secondary text-white font-medium py-3 px-4 rounded-lg hover:opacity-90 transition-opacity"
+                  >
+                    Subscribe Now
+                  </button>
+                  <p class="text-xs text-muted-foreground text-center">
+                    We promise not to spam you. We'll only send you content when
+                    we're too lazy to code.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

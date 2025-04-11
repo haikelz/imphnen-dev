@@ -1,7 +1,5 @@
 ---
 import { RefreshCcw } from "lucide-svelte";
-import Footer from "../components/astro/Footer.astro";
-import Header from "../components/svelte/Header.svelte";
 import Layout from "../layouts/Layout.astro";
 import { WEBSITE_DESCRIPTION, WEBSITE_URL } from "../utils/constants";
 ---
@@ -11,7 +9,6 @@ import { WEBSITE_DESCRIPTION, WEBSITE_URL } from "../utils/constants";
   description={WEBSITE_DESCRIPTION}
   url={WEBSITE_URL}
 >
-  <Header client:load />
   <main class="flex-1">
     <section class="py-24 md:py-32 flex items-center justify-center">
       <div class="container">
@@ -24,7 +21,7 @@ import { WEBSITE_DESCRIPTION, WEBSITE_URL } from "../utils/constants";
           <div class="flex justify-center mt-8">
             <a
               href="/"
-              class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+              class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
             >
               <RefreshCcw class="mr-2 h-4 w-4" />
               Refresh Halaman Ini
@@ -32,7 +29,7 @@ import { WEBSITE_DESCRIPTION, WEBSITE_URL } from "../utils/constants";
           </div>
           <div class="relative mt-12">
             <div
-              class="border rounded-lg bg-card shadow-sm p-6 text-card-foreground"
+              class="border rounded-lg bg-card shadow-xs p-6 text-card-foreground"
             >
               <div class="font-mono text-sm text-muted-foreground">
                 <p>// Server lagi ngeproses requestmu</p>
@@ -56,5 +53,4 @@ import { WEBSITE_DESCRIPTION, WEBSITE_URL } from "../utils/constants";
       </div>
     </section>
   </main>
-  <Footer />
 </Layout>

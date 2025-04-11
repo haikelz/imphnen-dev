@@ -1,9 +1,9 @@
 ---
-import "@fontsource-variable/plus-jakarta-sans";
-import ClientRouter from "astro/components/ClientRouter.astro";
+import "../styles/globals.css";
 import Footer from "../components/astro/Footer.astro";
 import Header from "../components/svelte/Header.svelte";
-import "../styles/globals.css";
+import "@fontsource-variable/plus-jakarta-sans";
+import { ClientRouter } from "astro:transitions";
 import {
   WEBSITE_DESCRIPTION,
   WEBSITE_TITLE,
@@ -44,8 +44,60 @@ const {
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap.xml" />
     <ClientRouter />
+
+    <!-- Theme script that runs before the page loads to prevent flash -->
+    <script is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
   <body>
+    <!-- Gradient background elements for light mode -->
+    <div
+      class="fixed inset-0 -z-10 bg-linear-to-b from-background to-background dark:from-background dark:to-background overflow-hidden pointer-events-none"
+    >
+      <div
+        class="absolute -top-[40rem] -left-[40rem] w-[100rem] h-[100rem] rounded-full bg-linear-to-tr from-primary/20 via-purple-500/5 to-blue-500/20 blur-3xl opacity-30 dark:opacity-20"
+      >
+      </div>
+      <div
+        class="absolute -top-[30rem] -right-[40rem] w-[100rem] h-[100rem] rounded-full bg-linear-to-tl from-blue-500/20 via-sky-500/5 to-teal-500/20 blur-3xl opacity-30 dark:opacity-20"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 left-0 right-0 h-[20rem] bg-linear-to-t from-background to-transparent"
+      >
+      </div>
+    </div>
+
+    <!-- Grid pattern overlay -->
+    <div
+      class="fixed inset-0 -z-10 bg-grid-pattern bg-[length:50px_50px] opacity-[0.02] dark:opacity-[0.03] pointer-events-none"
+    >
+    </div>
+
+    <!-- Noise texture overlay -->
+    <div
+      class="fixed inset-0 -z-10 bg-noise-pattern opacity-[0.02] dark:opacity-[0.03] pointer-events-none"
+    >
+    </div>
+
     <div class="flex min-h-screen flex-col">
       <Header client:only="svelte" />
       <slot />

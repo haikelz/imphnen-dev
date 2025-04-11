@@ -2,51 +2,88 @@
 import { ChevronRight } from "lucide-svelte";
 ---
 
-<section id="about" class="py-16 bg-muted/50">
-  <div class="container">
-    <div class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-      <div class="space-y-4">
-        <h2 class="text-3xl font-bold tracking-tight">Tentang IMPHNEN</h2>
-        <p class="text-muted-foreground">
-          IMPHNEN (Ingin Menjadi Programmer Handal, Namun Enggan Ngoding) adalah
-          sebuah komunitas untuk para programmer yang pengen jago tapi malas
-          ngoding dan hobi scroll Fesnuk. Memang sebuah ironi, dan dengan adanya
-          hal itu kami membuat wadah untuk para programmer dimana mereka bisa
-          santai sejenak dari kerjaan, membagikan jokes, dan belajar dengan
-          sesama programmer lain.
-        </p>
-        <p class="text-muted-foreground">
-          Komunitas kami tidak hanya sebatas soal scroll Fesnuk dan berbagi
-          meme, tetapi kami punya banyak sepuh yang sering membagikan ilmu dan
-          pengalamannya.
-        </p>
+<section id="about" class="py-16">
+  <div class="container px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold inline-block relative">
+        About IMPHNEN
+        <span
+          class="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-primary via-secondary to-accent"
+        ></span>
+      </h2>
+    </div>
+
+    <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
+      <div class="space-y-6">
+        <div class="relative">
+          <div
+            class="absolute -inset-1 bg-linear-to-r from-primary/20 to-secondary/20 rounded-lg blur-sm opacity-30"
+          >
+          </div>
+          <div
+            class="relative p-6 bg-card rounded-lg border border-border/50 shadow-lg"
+          >
+            <p class="text-lg">
+              <span class="font-bold text-primary">IMPHNEN</span>(Ingin Menjadi
+              Programmer Handal, Namun Enggan Ngoding) adalah sebuah komunitas
+              untuk para programmer yang pengen jago tapi malas ngoding dan hobi
+              scroll Fesnuk. Memang sebuah ironi, dan dengan adanya hal itu kami
+              membuat wadah untuk para programmer dimana mereka bisa santai
+              sejenak dari kerjaan, membagikan jokes, dan belajar dengan sesama
+              programmer lain.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div
+            class="absolute -inset-1 bg-linear-to-r from-secondary/20 to-accent/20 rounded-lg blur-sm opacity-30"
+          >
+          </div>
+          <div
+            class="relative p-6 bg-card rounded-lg border border-border/50 shadow-lg"
+          >
+            <p class="text-lg">
+              Komunitas kami tidak hanya sebatas soal scroll Fesnuk dan berbagi
+              meme, tetapi kami punya banyak sepuh yang sering membagikan ilmu
+              dan pengalamannya.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="space-y-4">
-        <div
-          class="rounded-lg border bg-card text-card-foreground shadow-xs p-6"
-        >
-          <h3 class="text-xl font-semibold mb-2">
+
+      <div>
+        <div class="neobrutalism rounded-xl p-8">
+          <h3 class="text-2xl font-bold mb-6 text-center text-gray-900">
             Apa sih yang bisanya kami share?
           </h3>
-          <ul class="space-y-2">
-            <li class="flex items-start">
+          <ul class="space-y-4">
+            <li
+              class="p-4 rounded-lg bg-muted/70 flex items-start transform transition-transform hover:-translate-y-1 hover:shadow-md"
+            >
               <ChevronRight class="mr-2 h-5 w-5 text-primary shrink-0 mt-0.5" />
               <span>Jokes/Meme pemrograman yang kamu akan relate dengannya</span
               >
             </li>
-            <li class="flex items-start">
+            <li
+              class="p-4 rounded-lg bg-muted/70 flex items-start transform transition-transform hover:-translate-y-1 hover:shadow-md"
+            >
               <ChevronRight class="mr-2 h-5 w-5 text-primary shrink-0 mt-0.5" />
               <span
                 >Tips & trick tetap scroll Fesnuk walau dikejar deadline</span
               >
             </li>
-            <li class="flex items-start">
+            <li
+              class="p-4 rounded-lg bg-muted/70 flex items-start transform transition-transform hover:-translate-y-1 hover:shadow-md"
+            >
               <ChevronRight class="mr-2 h-5 w-5 text-primary shrink-0 mt-0.5" />
               <span
                 >Ilmu baru dari para sepuh yang kadang berasal dari PP Anime</span
               >
             </li>
-            <li class="flex items-start">
+            <li
+              class="p-4 rounded-lg bg-muted/70 flex items-start transform transition-transform hover:-translate-y-1 hover:shadow-md"
+            >
               <ChevronRight class="mr-2 h-5 w-5 text-primary shrink-0 mt-0.5" />
               <span>Gorengan terbaru. Kami punya banyak chef handal disini</span
               >

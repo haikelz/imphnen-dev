@@ -2,38 +2,75 @@
 import { Code, Users } from "lucide-svelte";
 ---
 
-<section class="py-12 bg-primary/5">
-  <div class="container">
+<section class="py-12">
+  <div class="container px-4">
     <div class="grid gap-8 sm:grid-cols-2">
       <!-- Facebook Members Stat -->
-      <div
-        class="rounded-lg border bg-card text-card-foreground shadow-sm p-6 flex items-center space-x-4"
-      >
-        <div class="bg-primary/10 p-3 rounded-full">
-          <Users class="h-8 w-8 text-primary" />
+      <div class="neumorphism relative group overflow-hidden">
+        <div
+          class="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+        >
         </div>
-        <div>
-          <p class="text-sm text-muted-foreground">Facebook Group Member</p>
-          <h3 class="text-3xl font-bold">160k+</h3>
-          <p class="text-sm text-muted-foreground mt-1">
-            Programmer malas dan masih akan bertambah....
-          </p>
+        <div class="relative p-8 flex items-center gap-6 z-10">
+          <div
+            class="flex items-center justify-center h-16 w-16 rounded-xl bg-linear-to-br from-primary/20 to-purple-500/30"
+          >
+            <Users class="h-8 w-8 text-primary" />
+          </div>
+          <div>
+            <p
+              class="text-sm text-muted-foreground font-medium uppercase tracking-wider"
+            >
+              Facebook Group Members
+            </p>
+            <div class="flex items-end gap-2">
+              <h3 class="text-4xl font-bold text-foreground mt-1">160k</h3>
+              <span class="text-xl text-primary font-bold mb-1">+</span>
+            </div>
+            <p class="text-sm text-muted-foreground mt-1">
+              Programmer malas dan masih akan bertambah....
+            </p>
+          </div>
+
+          <!-- Decorative element -->
+          <div
+            class="absolute -right-4 -top-4 rounded-full w-16 h-16 bg-linear-to-br from-primary/5 to-purple-500/10 blur-xl"
+          >
+          </div>
         </div>
       </div>
 
       <!-- Projects Completed Stat -->
-      <div
-        class="rounded-lg border bg-card text-card-foreground shadow-sm p-6 flex items-center space-x-4"
-      >
-        <div class="bg-primary/10 p-3 rounded-full">
-          <Code class="h-8 w-8 text-primary" />
+      <div class="neumorphism relative group overflow-hidden">
+        <div
+          class="absolute inset-0 bg-linear-to-br from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+        >
         </div>
-        <div>
-          <p class="text-sm text-muted-foreground">Project Selesai</p>
-          <h3 class="text-3xl font-bold">0/10</h3>
-          <p class="text-sm text-muted-foreground mt-1">
-            Nanti juga selesai cui projectnya
-          </p>
+        <div class="relative p-8 flex items-center gap-6 z-10">
+          <div
+            class="flex items-center justify-center h-16 w-16 rounded-xl bg-linear-to-br from-secondary/20 to-accent/30"
+          >
+            <Code class="h-8 w-8 text-secondary" />
+          </div>
+          <div>
+            <p
+              class="text-sm text-muted-foreground font-medium uppercase tracking-wider"
+            >
+              Project Selesai
+            </p>
+            <div class="flex items-end gap-2">
+              <h3 class="text-4xl font-bold text-foreground mt-1">0/10</h3>
+            </div>
+            <p class="text-sm text-muted-foreground mt-1">
+              Nanti juga selesai cui projectnya
+            </p>
+          </div>
+
+          <!-- Decorative element -->
+          <div
+            class="absolute -right-4 -top-4 rounded-full w-16 h-16 bg-linear-to-br from-secondary/5 to-accent/10 blur-xl"
+          >
+          </div>
         </div>
       </div>
     </div>

@@ -2,80 +2,144 @@
 import { Facebook, Github, MessageSquare } from "lucide-svelte";
 ---
 
-<section id="community" class="py-16">
-  <div class="container">
-    <h2 class="text-3xl font-bold tracking-tight text-center mb-12">
-      Komunitas Kami Ada Dimana Aja Sih?
-    </h2>
+<section id="community" class="py-16 relative">
+  <!-- Background decorative elements -->
+  <div
+    class="absolute left-0 top-32 w-64 h-64 bg-linear-to-r from-primary/20 to-transparent rounded-full filter blur-3xl -z-10"
+  >
+  </div>
+  <div
+    class="absolute right-0 bottom-32 w-64 h-64 bg-linear-to-l from-secondary/20 to-transparent rounded-full filter blur-3xl -z-10"
+  >
+  </div>
+
+  <div class="container px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold inline-block relative">
+        Our Community Platforms
+        <span
+          class="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-primary via-secondary to-accent"
+        ></span>
+      </h2>
+      <p class="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
+        Connect with fellow lazy programmers across different platforms. Join us
+        where you feel most comfortable.
+      </p>
+    </div>
+
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       <!-- Facebook Group -->
-      <div
-        class="rounded-lg border bg-card text-card-foreground shadow-xs overflow-hidden group hover:shadow-md transition-all"
-      >
-        <div class="bg-primary/10 p-6 flex justify-center">
-          <Facebook class="h-12 w-12 text-primary" />
+      <div class="group relative">
+        <div
+          class="absolute -inset-0.5 bg-linear-to-r from-primary to-purple-600 rounded-2xl blur-sm opacity-30 group-hover:opacity-100 transition duration-1000"
+        >
         </div>
-        <div class="p-6 space-y-2">
-          <h3 class="text-xl font-semibold">Facebook Group</h3>
-          <p class="text-muted-foreground">
-            Aktivitas utama IMPHNEN ada di our lovely social media, Fesnuk.
-          </p>
-          <a
-            href="https://www.facebook.com/groups/programmerhandal"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-full group-hover:bg-primary group-hover:text-primary-foreground px-4 py-2"
-          >
-            Join Group
-          </a>
+        <div
+          class="relative bg-card rounded-xl overflow-hidden border border-border/50"
+        >
+          <div class="h-3 bg-linear-to-r from-primary to-purple-600"></div>
+          <div class="p-8 flex flex-col justify-between h-[calc(100%-0.75rem)]">
+            <div>
+              <div
+                class="w-16 h-16 mb-6 flex items-center justify-center bg-primary/10 rounded-xl"
+              >
+                <Facebook class="h-8 w-8 text-primary" />
+              </div>
+              <h3 class="text-xl font-bold mb-3">Facebook Group</h3>
+              <p class="text-muted-foreground mb-6">
+                Aktivitas utama IMPHNEN ada di our lovely social media, Fesnuk.
+              </p>
+            </div>
+            <a
+              href="https://www.facebook.com/groups/programmerhandal"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-modern btn-modern-primary w-full justify-center group"
+            >
+              Join Group
+              <span class="ml-2 transition-transform group-hover:translate-x-1"
+                >→</span
+              >
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- GitHub Organization -->
-      <div
-        class="rounded-lg border bg-card text-card-foreground shadow-xs overflow-hidden group hover:shadow-md transition-all"
-      >
-        <div class="bg-primary/10 p-6 flex justify-center">
-          <Github class="h-12 w-12 text-primary" />
+      <div class="group relative">
+        <div
+          class="absolute -inset-0.5 bg-linear-to-r from-secondary to-blue-600 rounded-2xl blur-sm opacity-30 group-hover:opacity-100 transition duration-1000"
+        >
         </div>
-        <div class="p-6 space-y-2">
-          <h3 class="text-xl font-semibold">GitHub Organization</h3>
-          <p class="text-muted-foreground">
-            Seluruh project open source kami tersedia di Github Organization!
-            Kamu bisa coba ikutan kontribusi juga.
-          </p>
-          <a
-            href="https://github.com/IMPHNEN"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-full group-hover:bg-primary group-hover:text-primary-foreground px-4 py-2"
-          >
-            View Organization
-          </a>
+        <div
+          class="relative bg-card rounded-xl overflow-hidden border border-border/50"
+        >
+          <div class="h-3 bg-linear-to-r from-secondary to-blue-600"></div>
+          <div class="p-8 flex flex-col justify-between h-[calc(100%-0.75rem)]">
+            <div>
+              <div
+                class="w-16 h-16 mb-6 flex items-center justify-center bg-secondary/10 rounded-xl"
+              >
+                <Github class="h-8 w-8 text-secondary" />
+              </div>
+              <h3 class="text-xl font-bold mb-3">GitHub Organization</h3>
+              <p class="text-muted-foreground mb-6">
+                Seluruh project open source kami tersedia di Github
+                Organization! Kamu bisa coba ikutan kontribusi juga.
+              </p>
+            </div>
+            <a
+              href="https://github.com/IMPHNEN"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-modern btn-modern-primary w-full justify-center group"
+              style="background: linear-gradient(to right, hsl(var(--secondary)), #4070F4);"
+            >
+              View Organization
+              <span class="ml-2 transition-transform group-hover:translate-x-1"
+                >→</span
+              >
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- Discord Server -->
-      <div
-        class="rounded-lg border bg-card text-card-foreground shadow-xs overflow-hidden group hover:shadow-md transition-all"
-      >
-        <div class="bg-primary/10 p-6 flex justify-center">
-          <MessageSquare class="h-12 w-12 text-primary" />
+      <div class="group relative">
+        <div
+          class="absolute -inset-0.5 bg-linear-to-r from-accent to-teal-400 rounded-2xl blur-sm opacity-30 group-hover:opacity-100 transition duration-1000"
+        >
         </div>
-        <div class="p-6 space-y-2">
-          <h3 class="text-xl font-semibold">Discord Server</h3>
-          <p class="text-muted-foreground">
-            Kalo kamu lebih aktif di aplikasi sirkel (Discord), kami juga punya
-            Discord Server loh.
-          </p>
-          <a
-            href="https://discord.gg/imphnen"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-full group-hover:bg-primary group-hover:text-primary-foreground px-4 py-2"
-          >
-            Join Server
-          </a>
+        <div
+          class="relative bg-card rounded-xl overflow-hidden border border-border/50"
+        >
+          <div class="h-3 bg-linear-to-r from-accent to-teal-400"></div>
+          <div class="p-8 flex flex-col justify-between h-[calc(100%-0.75rem)]">
+            <div>
+              <div
+                class="w-16 h-16 mb-6 flex items-center justify-center bg-accent/10 rounded-xl"
+              >
+                <MessageSquare class="h-8 w-8 text-accent" />
+              </div>
+              <h3 class="text-xl font-bold mb-3">Discord Server</h3>
+              <p class="text-muted-foreground mb-6">
+                Kalo kamu lebih aktif di aplikasi sirkel (Discord), kami juga
+                punya Discord Server loh.
+              </p>
+            </div>
+            <a
+              href="https://discord.gg/imphnen"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-modern btn-modern-primary w-full justify-center group"
+              style="background: linear-gradient(to right, hsl(var(--accent)), #20C9A6);"
+            >
+              Join Server
+              <span class="ml-2 transition-transform group-hover:translate-x-1"
+                >→</span
+              >
+            </a>
+          </div>
         </div>
       </div>
     </div>

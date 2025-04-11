@@ -4,9 +4,9 @@
 
   let isMenuOpen = false;
 
-  const toggleMenu = () => {
+  function toggleMenu() {
     isMenuOpen = !isMenuOpen;
-  };
+  }
 </script>
 
 <header
@@ -14,7 +14,7 @@
 >
   <div class="container flex h-16 items-center justify-between">
     <div class="flex items-center gap-2 font-bold text-xl">
-      <img src="/images/logo.svg" alt="logo" class="w-16 h-16" />
+      <img src="/images/logo.svg" alt="logo" class="w-20 h-16" />
     </div>
     <nav class="hidden md:flex gap-6">
       <a

@@ -1,59 +1,7 @@
+/* Your global styles here */
 @import "tailwindcss";
-@custom-variant dark (&:is(.dark *));
 
-@plugin '@tailwindcss/typography';
-
-@theme {
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
-}
-
-@utility container {
-  margin-inline: auto;
-  padding-inline: 2rem;
-  @media (width >= --theme(--breakpoint-sm)) {
-    max-width: none;
-  }
-  @media (width >= 1400px) {
-    max-width: 1400px;
-  }
-}
-
-* {
-  scroll-behavior: smooth;
-}
-
-html,
-body {
-  font-family: "Plus Jakarta Sans Variable", system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    "Open Sans", "Helvetica Neue", sans-serif;
-}
+@config '../../tailwind.config.cjs';
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -73,62 +21,75 @@ body {
   }
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: "Plus Jakarta Sans Variable", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+}
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Modern color scheme - Light mode */
+    --background: 210 40% 98%;
+    --foreground: 222 40% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222 40% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222 40% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 267 85% 60%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 85% 60%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 217 10% 94%;
+    --muted-foreground: 215 20% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 190 95% 45%;
+    --accent-foreground: 222 40% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 222 40% 75%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Modern color scheme - Dark mode */
+    --background: 222 40% 10%;
+    --foreground: 213 31% 91%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 222 35% 12%;
+    --card-foreground: 213 31% 91%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 222 35% 12%;
+    --popover-foreground: 213 31% 91%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 267 85% 65%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 220 85% 65%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 222 25% 18%;
+    --muted-foreground: 215 20% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 190 95% 45%;
+    --accent-foreground: 222 40% 12%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
@@ -142,6 +103,85 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Space Grotesk", sans-serif;
+  }
+  body {
+    font-family: "Inter", sans-serif;
+  }
+}
+
+/* Custom backgrounds */
+.bg-grid-pattern {
+  background-image: linear-gradient(
+      to right,
+      hsla(var(--foreground) / 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      hsla(var(--foreground) / 0.1) 1px,
+      transparent 1px
+    );
+}
+
+.bg-noise-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Neobrutalism/Neumorphism elements */
+.neobrutalism {
+  @apply bg-white border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] dark:shadow-[5px_5px_0px_0px_rgba(255,255,255,0.2)];
+}
+
+.neumorphism-light {
+  box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.6),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.neumorphism-dark {
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4),
+    -8px -8px 16px rgba(83, 92, 104, 0.2);
+}
+
+.neumorphism {
+  @apply bg-muted rounded-xl;
+}
+
+/* Modern button */
+.btn-modern {
+  @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-bold rounded-lg;
+}
+
+.btn-modern-primary {
+  @apply bg-primary text-primary-foreground;
+}
+
+.btn-modern-primary:before {
+  @apply absolute right-0 top-0 w-12 h-12 -mt-3 -mr-3 transition-all duration-300 ease-in-out bg-black rounded-full blur-md opacity-10 scale-0 origin-top-right;
+  content: "";
+}
+
+.btn-modern-primary:hover::before {
+  @apply scale-10 opacity-10;
+}
+
+.btn-modern-outline {
+  @apply border-2 border-primary bg-transparent text-primary transition-all;
+}
+
+.btn-modern-outline:hover {
+  @apply bg-primary text-primary-foreground;
+}
+
+.neumorphism {
+  @apply bg-muted rounded-xl;
 }
