@@ -1,5 +1,5 @@
 <script>
-  import { Menu } from "lucide-svelte";
+  import { Menu, X } from "lucide-svelte";
   import ThemeToggle from "./ThemeToggle.svelte";
 
   let isMenuOpen = false;
@@ -10,7 +10,7 @@
 </script>
 
 <header
-  class="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+  class="sticky top-0 z-40 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
 >
   <div class="container flex h-16 items-center justify-between">
     <div class="flex items-center gap-2 font-bold text-xl">
@@ -55,14 +55,18 @@
         aria-label="Toggle menu"
         on:click={toggleMenu}
       >
-        <Menu class="h-5 w-5" />
+        {#if isMenuOpen}
+          <X class="h-5 w-5" />
+        {:else}
+          <Menu class="h-5 w-5" />
+        {/if}
         <span class="sr-only">Toggle menu</span>
       </button>
     </div>
   </div>
 
   {#if isMenuOpen}
-    <div class="container md:hidden py-4 bg-background border-t">
+    <div class="container md:hidden py-4">
       <nav class="flex flex-col gap-4">
         <a
           href="/"
